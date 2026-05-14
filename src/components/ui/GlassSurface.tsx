@@ -8,8 +8,6 @@ export interface GlassSurfaceProps {
   blur?: number;
   className?: string;
   style?: React.CSSProperties;
-  /** Whether to enable advanced SVG refraction (performance intensive) */
-  advanced?: boolean;
 }
 
 const GlassSurface: React.FC<GlassSurfaceProps> = React.memo(({
@@ -20,7 +18,6 @@ const GlassSurface: React.FC<GlassSurfaceProps> = React.memo(({
   blur = 20,
   className = '',
   style = {},
-  advanced = false
 }) => {
   const [isDark, setIsDark] = useState(false);
 

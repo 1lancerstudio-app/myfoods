@@ -12,8 +12,6 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
-    
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       
@@ -27,8 +25,6 @@ export function Header() {
       } else {
         setIsVisible(true)
       }
-      
-      lastScrollY = currentScrollY
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
