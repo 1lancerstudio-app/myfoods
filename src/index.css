@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+
+  /* Requested Background Color */
+  --color-page: #F8FAF7;
+  
+  /* Primary brand green */
+  --color-brand: #2F743D;
+  --color-brand-dark: #1e4a27;
+  
+  /* Palette Aliases & Extensions */
+  --color-forest: #1a3a2e;
+  --color-forest-muted: #2d5a45;
+  --color-amber-glow: #f5c842;
+  --color-amber-dark: #3d2000;
+  
+  /* Text colors for light theme */
+  --color-text-main: var(--color-forest);
+  --color-text-muted: rgba(26, 58, 46, 0.6);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply min-h-screen text-text-main antialiased font-sans overflow-x-hidden;
+    background-color: var(--color-page);
+    background-attachment: fixed;
+    line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .motion-safe-transition {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+}
+
+@utility container-app {
+  @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8;
+}
+
+/* Fluid Typography System */
+@utility text-hero {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1.1;
+}
+
+@utility text-section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+}
+
+@utility text-card-title {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+@utility text-body {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* Premium Light Mode Glassmorphism */
+@utility glass {
+  @apply border border-white/70 shadow-[0_4px_6px_-1px_rgba(47,116,61,0.05),0_10px_15px_-3px_rgba(47,116,61,0.1),0_0_0_1px_rgba(255,255,255,0.4)_inset] backdrop-blur-[16px] rounded-[1.5rem];
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(47, 116, 61, 0.03));
+}
+
+@utility glass-strong {
+  @apply border border-white/90 shadow-[0_20px_50px_-12px_rgba(26,58,46,0.15),0_10px_10px_-5px_rgba(26,58,46,0.04),0_0_0_1px_rgba(255,255,255,0.8)_inset] backdrop-blur-[24px] rounded-[2.5rem];
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(47, 116, 61, 0.08));
+}
+
+@utility glass-button {
+  @apply inline-flex items-center justify-center min-h-[2.75rem] min-w-[2.75rem] border border-white/60 shadow-sm backdrop-blur-md transition-all duration-300 rounded-full hover:border-brand/40 hover:bg-white/40 hover:shadow-md active:scale-95;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@utility glass-card-hover {
+  @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(26,58,46,0.25)] hover:border-white/100;
+}
+
+@utility glass-shine {
+  @apply relative overflow-hidden after:absolute after:inset-0 after:-translate-x-full after:animate-[shimmer_3s_infinite] after:bg-gradient-to-r after:from-transparent after:via-white/30 after:to-transparent;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Background Blobs for Light Mode */
+@utility blob {
+  @apply absolute -z-10 rounded-full mix-blend-multiply filter blur-[60px] opacity-20 transition-transform duration-1000;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Redesign Animations */
+@utility animate-in {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@utility fill-mode-both {
+  animation-fill-mode: both;
+}
+
+@utility fade-in {
+  animation-name: fadeIn;
+}
+
+@utility slide-in-from-bottom-5 {
+  animation-name: slideInBottom;
+}
+
+@utility slide-in-from-right-10 {
+  animation-name: slideInRight;
+}
+
+@utility zoom-in-95 {
+  animation-name: zoomIn;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInBottom {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@utility delay-500 {
+  animation-delay: 500ms;
+}
+
+@utility delay-700 {
+  animation-delay: 700ms;
+}

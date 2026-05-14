@@ -1,0 +1,102 @@
+import type { Product } from '@/types'
+
+export const SEED_PRODUCTS: Product[] = [
+  {
+    id: 'p-muesli',
+    slug: 'millet-muesli',
+    name: 'Millet Muesli',
+    category: 'muesli',
+    tagline: 'A crunchy, nutty blend of foxtail millet, oats & dried fruits',
+    description:
+      'Our signature millet muesli is slow-toasted in small batches for a crisp bite and balanced sweetness from dried fruits. Foxtail millet adds fibre and a gentle nuttiness — perfect with yogurt, milk, or straight from the jar.',
+    ingredients: [
+      'Foxtail millet',
+      'Rolled oats',
+      'Almonds',
+      'Pumpkin seeds',
+      'Sunflower seeds',
+      'Dried cranberries',
+      'Dried apricots',
+      'Cold-pressed coconut oil',
+      'A touch of raw jaggery',
+    ],
+    nutrition: [
+      { label: 'Serving', value: '45g' },
+      { label: 'Energy', value: '178 kcal' },
+      { label: 'Protein', value: '5.2g' },
+      { label: 'Fibre', value: '6.1g' },
+      { label: 'Added sugar', value: 'Low' },
+    ],
+    images: ['/images/muesli.svg'],
+    variants: [
+      { grams: 250, price: 249 },
+      { grams: 500, price: 449 },
+    ],
+    rating: 4.8,
+    stock: 120,
+  },
+  {
+    id: 'p-granola',
+    slug: 'classic-granola',
+    name: 'Classic Granola',
+    category: 'granola',
+    tagline: 'Slow-baked with oats, seeds & a hint of jaggery',
+    description:
+      'Clusters baked low and slow until golden — oats, seeds, and a whisper of jaggery for caramel depth without being cloying. Ideal for breakfast bowls, smoothies, or mindful snacking.',
+    ingredients: [
+      'Rolled oats',
+      'Chia seeds',
+      'Flax seeds',
+      'Sesame seeds',
+      'Cashews',
+      'Cold-pressed sunflower oil',
+      'Jaggery',
+      'Vanilla extract',
+      'Cinnamon',
+    ],
+    nutrition: [
+      { label: 'Serving', value: '40g' },
+      { label: 'Energy', value: '172 kcal' },
+      { label: 'Protein', value: '4.8g' },
+      { label: 'Fibre', value: '5.4g' },
+      { label: 'Whole grains', value: 'High' },
+    ],
+    images: ['/images/granola.svg'],
+    variants: [
+      { grams: 250, price: 229 },
+      { grams: 500, price: 399 },
+    ],
+    rating: 4.7,
+    stock: 95,
+  },
+  {
+    id: 'p-honey',
+    slug: 'wildflower-honey-mix',
+    name: 'Wildflower Honey Mix',
+    category: 'honey',
+    tagline: 'Raw, unfiltered honey blended with seeds & nuts',
+    description:
+      'Single-origin wildflower honey, gently folded with toasted seeds and nuts. Spread on toast, drizzle on yogurt, or stir into warm milk — a naturally sweet ritual you can feel good about.',
+    ingredients: [
+      'Raw wildflower honey',
+      'Almonds',
+      'Walnuts',
+      'Sunflower seeds',
+      'Pumpkin seeds',
+      'Black sesame',
+    ],
+    nutrition: [
+      { label: 'Serving', value: '30g' },
+      { label: 'Energy', value: '126 kcal' },
+      { label: 'Natural sugars', value: 'From honey' },
+      { label: 'Healthy fats', value: 'From nuts & seeds' },
+    ],
+    images: ['/images/honey.svg'],
+    variants: [
+      { grams: 250, price: 299 },
+      { grams: 500, price: 549 },
+    ],
+    rating: 4.9,
+    stock: 60,
+  },
+]
